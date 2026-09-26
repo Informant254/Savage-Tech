@@ -1,14 +1,17 @@
 {
-  "name": "savage-tech",
+  "name": "celestia-whatsapp-bot",
   "version": "1.6.1",
-  "description": "WhatsApp Bot by Spencer",
+  "description": "Hardened deployment fork of the Savage-Tech WhatsApp bot",
+  "private": true,
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "check:syntax": "node --check index.js && node --check server.js && node --check settings.js && node --check bot.js",
+    "audit:deps": "npm audit --omit=dev"
   },
   "engines": {
-    "node": ">=20.19.0"
+    "node": "20.x"
   },
   "dependencies": {
     "spencer-baileys": "^1.0.4",

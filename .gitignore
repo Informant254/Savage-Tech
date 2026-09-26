@@ -1,17 +1,15 @@
-node_modules
-session
-auth_info_baileys
+node_modules/
 .env
-creds.json
-session/
-temp_audio_*
-auth_info_baileys/
-session/
-creds.json
-*.log
-session/
-creds.json
-*.log
+.env.*
+!.env.example
 
+# WhatsApp/session credentials
+session/
+auth_info_baileys/
+creds.json
 owner.json
-owner.json
+
+# Runtime artifacts
+*.log
+temp_audio_*
+release.zip
