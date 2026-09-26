@@ -1,0 +1,44 @@
+name: Security Check
+
+on:
+  push:
+    branches:
+      - main
+      - celestia-hardening
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Syntax check
+        run: npm run check:syntax
+
+      - name: Build dependency metadata without lifecycle scripts
+        run: npm install --package-lock-only --ignore-scripts
+
+      - name: Dependency audit
+        run: npm audit --omit=dev --audit-level=high
+        continue-on-error: true
+
+      - name: Flag security-sensitive runtime patterns for review
+        shell: bash
+        run: |
+          echo 'Searching for security-sensitive patterns. Matches require manual review.'
+          grep -RInE \
+            --exclude-dir=.git \
+            --exclude='package-lock.json' \
+            '(child_process|execSync|spawnSync|eval\(|new Function|process\.env|https?://|creds\.json|SESSION_ID)' \
+            . || true
