@@ -1,28 +1,29 @@
 {
-  "name": "savage-tech",
+  "name": "celestia-whatsapp-bot",
   "version": "1.6.1",
-  "description": "WhatsApp Bot by Spencer",
+  "description": "WhatsApp automation bot maintained from the Savage-Tech fork",
   "main": "index.js",
   "type": "commonjs",
+  "private": true,
   "scripts": {
     "start": "node server.js"
   },
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=20.19.0 <25"
   },
   "dependencies": {
-    "spencer-baileys": "^1.0.4",
-    "spencer-btns": "^1.0.1",
-    "axios": "^1.18.1",
-    "cheerio": "^1.2.0",
-    "dotenv": "^17.4.2",
-    "extract-zip": "^2.0.1",
-    "form-data": "^4.0.6",
-    "pino": "^8.19.0",
-    "qrcode": "^1.5.4",
-    "qrcode-terminal": "^0.12.0",
-    "sharp": "^0.33.5",
-    "ws": "^8.18.0",
-    "yt-search": "^2.13.1"
+    "spencer-baileys": "1.0.4",
+    "spencer-btns": "1.0.1",
+    "axios": "1.18.1",
+    "cheerio": "1.2.0",
+    "dotenv": "17.4.2",
+    "extract-zip": "2.0.1",
+    "form-data": "4.0.6",
+    "pino": "8.19.0",
+    "qrcode": "1.5.4",
+    "qrcode-terminal": "0.12.0",
+    "sharp": "0.33.5",
+    "ws": "8.18.0",
+    "yt-search": "2.13.1"
   }
 }
