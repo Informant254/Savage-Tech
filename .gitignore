@@ -1,17 +1,22 @@
-node_modules
-session
-auth_info_baileys
-.env
-creds.json
-session/
-temp_audio_*
-auth_info_baileys/
-session/
-creds.json
-*.log
-session/
-creds.json
-*.log
+node_modules/
 
+# Runtime secrets
+.env
+.env.*
+!.env.example
+creds.json
+spence.key
 owner.json
-owner.json
+
+# WhatsApp auth/session state
+session/
+auth_info_baileys/
+
+# Runtime artifacts
+*.log
+temp_audio_*
+release.zip
+
+# Editor/OS noise
+.DS_Store
+Thumbs.db

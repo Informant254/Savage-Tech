@@ -1,7 +1,12 @@
-FROM node:20
+FROM node:20-bookworm-slim
+
 WORKDIR /usr/src/app
+ENV NODE_ENV=production
+
 COPY package*.json ./
-RUN npm install
-COPY . .
-EXPOSE 3000
+RUN npm install --omit=dev --no-audit --no-fund
+
+COPY --chown=node:node . .
+USER node
+
 CMD ["node", "server.js"]
